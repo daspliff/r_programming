@@ -2,7 +2,7 @@
 ## The function utilizes the superassignment operator to modify global variables within 
 ## the local function environment. The function return an object of type "list" consisting of the 
 ## matrix to be solved "x", its inverse "m", and 2 helper functions the caches the inverse in m (setinv),
-## and retreives "m" frm cache (getinv). 
+## and retreives "m" from cache (getinv). 
 
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
@@ -27,6 +27,7 @@ list(set = set, get = get,
 
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
+  ##Here we check to see if the solution is already in the cache...
   m <- x$getinv()
   if(!is.null(m)) {
     message("getting cached data")
